@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// ignore_for_file: prefer_const_constructors
 class profilePicture extends StatelessWidget {
   const profilePicture({
     super.key,
@@ -11,19 +12,16 @@ class profilePicture extends StatelessWidget {
       children: [
         // pfp
         Container(
-          width: 120,
-          height: 120,
+          width: 105,
+          height: 105,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(60),
-              gradient: LinearGradient(colors: [
-                Colors.orange,
-                Colors.red,
-                Colors.purple
-              ])),
+              gradient: LinearGradient(
+                  colors: const [Colors.orange, Colors.red, Colors.purple])),
         ),
         Container(
-            width: 110,
-            height: 110,
+            width: 95,
+            height: 95,
             decoration: BoxDecoration(
                 border: Border.all(width: 3, color: Colors.white),
                 borderRadius: BorderRadius.circular(60),

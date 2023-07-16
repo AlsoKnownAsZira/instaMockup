@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/counterInfo.dart';
 import '../widgets/profilePicture.dart';
-
+// ignore_for_file: prefer_const_constructors
 class profilePage extends StatelessWidget {
   const profilePage({super.key});
 
@@ -13,7 +13,7 @@ class profilePage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Row(
-          children: [
+          children: const [
             Icon(
               Icons.lock,
               color: Colors.black,
@@ -79,7 +79,7 @@ class profilePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15, vertical: 0),
             child: RichText(
-              text: TextSpan(children: [
+              text: TextSpan(children: const [
                 TextSpan(
                   text:
                       "Hi there, Thanks for testing my app. Some Instagram features may not be available yet in this clone app, but stay tuned for future updates! ",
@@ -105,7 +105,9 @@ class profilePage extends StatelessWidget {
           Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+              
+                },
                 child: Text("EDIT PROFILE",style: TextStyle(color: Colors.black),),
               ))
         ],
