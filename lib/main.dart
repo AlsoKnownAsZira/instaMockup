@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_mockup/pages/profilePage.dart';
 
 void main() {
   runApp(instaApp());
@@ -9,6 +10,9 @@ class instaApp extends StatelessWidget {
 
   @override
   Widget build (BuildContext context) {
-    return const  Scaffold();
+    return const  MaterialApp(
+      home: profilePage(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
