@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../widgets/counterInfo.dart';
 class profilePage extends StatelessWidget {
   const profilePage({super.key});
 
@@ -48,12 +48,14 @@ class profilePage extends StatelessWidget {
         ],
       ),
       body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 10),
         children: [
           Row(
             children: [
               Stack(
                 alignment: Alignment.center,
                 children: [
+                  // pfp
                   Container(
                     width: 120,
                     height: 120,
@@ -69,12 +71,21 @@ class profilePage extends StatelessWidget {
                       width: 110,
                       height: 110,
                       decoration: BoxDecoration(
-                        border: Border.all(width: 5, color: Colors.white),
-                        borderRadius: BorderRadius.circular(60),
-                       image: DecorationImage(image: AssetImage('assets/images/ppzira.jpg'))
-                      ))
+                          border: Border.all(width: 5, color: Colors.white),
+                          borderRadius: BorderRadius.circular(60),
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/ppzira.jpg'),
+                            fit: BoxFit.cover,
+                          )))
                 ],
               ),
+              //follower, following, post count
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [counterInfo("Post", "3"),counterInfo("Followers", "10"),counterInfo("Following", "7")],
+                ),
+              )
             ],
           )
         ],
@@ -82,3 +93,4 @@ class profilePage extends StatelessWidget {
     );
   }
 }
+
