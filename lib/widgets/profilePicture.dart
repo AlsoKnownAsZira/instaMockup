@@ -25,7 +25,7 @@ class profilePicture extends StatelessWidget {
             width: 110,
             height: 110,
             decoration: BoxDecoration(
-                border: Border.all(width: 5, color: Colors.white),
+                border: Border.all(width: 3, color: Colors.white),
                 borderRadius: BorderRadius.circular(60),
                 image: DecorationImage(
                   image: AssetImage('assets/images/ppzira.jpg'),
