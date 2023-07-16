@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_mockup/pages/profilePage.dart';
-
+//
 void main() {
   runApp(instaApp());
 }
