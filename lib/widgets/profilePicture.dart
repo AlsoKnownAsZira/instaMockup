@@ -28,7 +28,8 @@ class profilePicture extends StatelessWidget {
                 image: DecorationImage(
                   image: AssetImage('assets/images/ppzira.jpg'),
                   fit: BoxFit.cover,
-                )))
+                ))
+                ),
       ],
     );
   }

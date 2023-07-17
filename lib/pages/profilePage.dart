@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/counterInfo.dart';
 import '../widgets/profilePicture.dart';
+
 // ignore_for_file: prefer_const_constructors
 class profilePage extends StatelessWidget {
   const profilePage({super.key});
@@ -103,15 +104,66 @@ class profilePage extends StatelessWidget {
             height: 3,
           ),
           Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              child: OutlinedButton(
-                onPressed: () {
-              
-                },
-                child: Text("EDIT PROFILE",style: TextStyle(color: Colors.black),),
-              ))
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: OutlinedButton(
+              onPressed: () {},
+              child: Text(
+                "EDIT PROFILE",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+             
+              children: [
+                                 Highlight(
+                    highlight_title: "TEST",
+                    image_asset: 'assets/images/ppzira.jpg'),
+                Highlight(
+                    highlight_title: "TEST2",
+                    image_asset: 'assets/images/ppzira.jpg'),
+                    
+              ],
+            ),
+          )
         ],
       ),
+    );
+  }
+}
+
+class Highlight extends StatelessWidget {
+  const Highlight({
+    required this.highlight_title,
+    required this.image_asset,
+    super.key,
+  });
+  final String highlight_title;
+  final String image_asset;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        ElevatedButton(
+            onPressed: () {},
+            child: Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 3, color: Colors.white),
+                    borderRadius: BorderRadius.circular(60),
+                    image: DecorationImage(
+                      image: AssetImage(image_asset),
+                      fit: BoxFit.cover,
+                    ))),
+            style: ElevatedButton.styleFrom(shape: CircleBorder())),
+        SizedBox(
+          height: 5,
+        ),
+        Text(highlight_title)
+      ],
     );
   }
 }
