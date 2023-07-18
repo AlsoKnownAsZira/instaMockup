@@ -160,24 +160,61 @@ class _profilePageState extends State<profilePage>
               )),
             ],
           ),
-          SizedBox(height: 5,),
-          GridView(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 1,crossAxisSpacing: 5),
-            children: [
-              Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/ppzira.jpg"),fit: BoxFit.cover)
+          SizedBox(
+            height: 5,
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height-200,
+            child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
+                controller: tabController,
+                children: [
+              GridView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 1,
+                    crossAxisSpacing: 5),
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/ppzira.jpg"),
+                            fit: BoxFit.cover)),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/ppzira.jpg"),
+                            fit: BoxFit.cover)),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/ppzira.jpg"),
+                            fit: BoxFit.cover)),
+                  )
+                ],
               ),
-            ),
-             Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/ppzira.jpg"),fit: BoxFit.cover)
+                GridView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 1,
+                    crossAxisSpacing: 5),
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/ppzira.jpg"),
+                            fit: BoxFit.cover)),
+                  ),
+                 
+                ],
               ),
-            )
-            ],
+            ]),
           )
         ],
       ),
