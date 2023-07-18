@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import '../widgets/counterInfo.dart';
 import '../widgets/profilePicture.dart';
+import '../widgets/highlights.dart';
 
 // ignore_for_file: prefer_const_constructors
-class profilePage extends StatelessWidget {
+class profilePage extends StatefulWidget {
   const profilePage({super.key});
 
+  @override
+  State<profilePage> createState() => _profilePageState();
+}
+
+class _profilePageState extends State<profilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,54 +122,20 @@ class profilePage extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-             
-              children: [
-                                 Highlight(
+              children: const [
+                Highlight(
                     highlight_title: "TEST",
                     image_asset: 'assets/images/ppzira.jpg'),
                 Highlight(
                     highlight_title: "TEST2",
                     image_asset: 'assets/images/ppzira.jpg'),
-                    
               ],
             ),
-          )
+          ),
+          
+
         ],
       ),
-    );
-  }
-}
-
-class Highlight extends StatelessWidget {
-  const Highlight({
-    required this.highlight_title,
-    required this.image_asset,
-    super.key,
-  });
-  final String highlight_title;
-  final String image_asset;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ElevatedButton(
-            onPressed: () {},
-            child: Container(
-                width: 80,
-                height: 80,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 3, color: Colors.white),
-                    borderRadius: BorderRadius.circular(60),
-                    image: DecorationImage(
-                      image: AssetImage(image_asset),
-                      fit: BoxFit.cover,
-                    ))),
-            style: ElevatedButton.styleFrom(shape: CircleBorder())),
-        SizedBox(
-          height: 5,
-        ),
-        Text(highlight_title)
-      ],
     );
   }
 }
