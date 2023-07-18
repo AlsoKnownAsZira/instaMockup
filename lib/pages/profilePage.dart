@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../widgets/counterInfo.dart';
 import '../widgets/profilePicture.dart';
@@ -11,7 +13,16 @@ class profilePage extends StatefulWidget {
   State<profilePage> createState() => _profilePageState();
 }
 
-class _profilePageState extends State<profilePage> {
+class _profilePageState extends State<profilePage>
+    with SingleTickerProviderStateMixin {
+  late TabController tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 2, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,8 +143,42 @@ class _profilePageState extends State<profilePage> {
               ],
             ),
           ),
-          
-
+          TabBar(
+            indicatorColor: Colors.black,
+            padding: EdgeInsets.zero,
+            controller: tabController,
+            tabs: const [
+              Tab(
+                  icon: Icon(
+                Icons.grid_on_rounded,
+                color: Colors.black,
+              )),
+              Tab(
+                  icon: Icon(
+                Icons.person_pin_outlined,
+                color: Colors.black,
+              )),
+            ],
+          ),
+          SizedBox(height: 5,),
+          GridView(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 1,crossAxisSpacing: 5),
+            children: [
+              Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage("assets/images/ppzira.jpg"),fit: BoxFit.cover)
+              ),
+            ),
+             Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage("assets/images/ppzira.jpg"),fit: BoxFit.cover)
+              ),
+            )
+            ],
+          )
         ],
       ),
     );
