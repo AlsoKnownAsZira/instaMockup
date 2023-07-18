@@ -16,16 +16,60 @@ class profilePage extends StatefulWidget {
 class _profilePageState extends State<profilePage>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
+  // opening image tapped
+  int imageChoiceIndex = -1;
+  void openImageChoosen(int index) {
+    setState(() {
+      imageChoiceIndex = index;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     tabController = TabController(length: 2, vsync: this);
   }
-
+// handling tab changes
+int currentIndex = 0;
+void tapTab(int index){
+  setState(() {
+    currentIndex = index;
+  });
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        currentIndex:currentIndex ,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        onTap: tapTab,
+        
+        items:const[
+         BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+           BottomNavigationBarItem(
+            icon: Icon(Icons.add_box_outlined),
+            label: 'Plus',
+          ),
+            BottomNavigationBarItem(
+            icon: Icon(Icons.movie),
+            label: 'Reels',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ]),
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -79,7 +123,7 @@ class _profilePageState extends State<profilePage>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    counterInfo("Post", "3"),
+                    counterInfo("Posts", "3"),
                     counterInfo("Followers", "10"),
                     counterInfo("Following", "7")
                   ],
@@ -135,11 +179,11 @@ class _profilePageState extends State<profilePage>
             child: Row(
               children: const [
                 Highlight(
-                    highlight_title: "TEST",
-                    image_asset: 'assets/images/ppzira.jpg'),
+                    highlight_title: "Nom nom",
+                    image_asset: 'assets/images/hl1.jpg'),
                 Highlight(
-                    highlight_title: "TEST2",
-                    image_asset: 'assets/images/ppzira.jpg'),
+                    highlight_title: "Meow meow",
+                    image_asset: 'assets/images/hl2.jpg'),
               ],
             ),
           ),
@@ -164,58 +208,58 @@ class _profilePageState extends State<profilePage>
             height: 5,
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height-200,
+            height: MediaQuery.of(context).size.height - 190,
             child: TabBarView(
                 physics: NeverScrollableScrollPhysics(),
                 controller: tabController,
                 children: [
-              GridView(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 1,
-                    crossAxisSpacing: 5),
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/ppzira.jpg"),
-                            fit: BoxFit.cover)),
+                  GridView(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 1,
+                        crossAxisSpacing: 5),
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/images/boat.jpg"),
+                                fit: BoxFit.cover)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/images/cat.jpg"),
+                                fit: BoxFit.cover)),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/images/sushi.jpg"),
+                                fit: BoxFit.cover)),
+                      )
+                    ],
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/ppzira.jpg"),
-                            fit: BoxFit.cover)),
+                  GridView(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 1,
+                        crossAxisSpacing: 5),
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/images/tagged.jpg"),
+                                fit: BoxFit.cover)),
+                      ),
+                    ],
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/ppzira.jpg"),
-                            fit: BoxFit.cover)),
-                  )
-                ],
-              ),
-                GridView(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    mainAxisSpacing: 1,
-                    crossAxisSpacing: 5),
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/ppzira.jpg"),
-                            fit: BoxFit.cover)),
-                  ),
-                 
-                ],
-              ),
-            ]),
-          )
+                ]),
+          ),
+          
         ],
       ),
     );

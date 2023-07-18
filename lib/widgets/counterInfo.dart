@@ -9,9 +9,9 @@ class counterInfo extends StatelessWidget {
       children: [
         Text(
           value,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
         ),
-        Text(category,  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        Text(category,  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
       )
       ],
     );
