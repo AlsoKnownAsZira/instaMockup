@@ -12,7 +12,10 @@ class Highlight extends StatelessWidget {
     return Column(
       children: [
         OutlinedButton(
-            onPressed: () {},
+            onPressed: () {
+              
+            },
+            style: ElevatedButton.styleFrom(shape: CircleBorder()),
             child: Container(
                 width: 80,
                 height: 80,
@@ -22,9 +25,8 @@ class Highlight extends StatelessWidget {
                     image: DecorationImage(
                       image: AssetImage(image_asset),
                       fit: BoxFit.cover,
-                    ))),
-            style: ElevatedButton.styleFrom(shape: CircleBorder())),
-        SizedBox(
+                    )))),
+        const SizedBox(
           height: 5,
         ),
         Text(highlight_title)

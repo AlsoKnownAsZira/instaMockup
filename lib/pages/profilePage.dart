@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:insta_mockup/widgets/postDetail.dart';
 import '../widgets/counterInfo.dart';
 import '../widgets/profilePicture.dart';
 import '../widgets/highlights.dart';
@@ -16,12 +17,30 @@ class profilePage extends StatefulWidget {
 class _profilePageState extends State<profilePage>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
+
+  List<String> imagesPost = [
+    "assets/images/boat.jpg",
+    "assets/images/cat.jpg",
+    "assets/images/sushi.jpg",
+  ];
+  List<String> caption = [
+    "Nice holiday",
+    "Cute little meow meow",
+    "Itadakimasu!"
+  ];
+  List<int> likeCounts = [7, 10, 6];
+
   // opening image tapped
-  int imageChoiceIndex = -1;
-  void openImageChoosen(int index) {
-    setState(() {
-      imageChoiceIndex = index;
-    });
+  void openPostDetail(int index) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => postDetail(
+              imageList: imagesPost,
+              selectedIndex: index,
+              imageCapt: caption,
+              likeCount: likeCounts),
+        ));
   }
 
   @override
@@ -29,47 +48,48 @@ class _profilePageState extends State<profilePage>
     super.initState();
     tabController = TabController(length: 2, vsync: this);
   }
+
 // handling tab changes
-int currentIndex = 0;
-void tapTab(int index){
-  setState(() {
-    currentIndex = index;
-  });
-}
+  int currentIndex = 4;
+  void tapTab(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        currentIndex:currentIndex ,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        onTap: tapTab,
-        
-        items:const[
-         BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-           BottomNavigationBarItem(
-            icon: Icon(Icons.add_box_outlined),
-            label: 'Plus',
-          ),
+          backgroundColor: Colors.white,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey,
+          currentIndex: currentIndex,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          onTap: tapTab,
+          items: const [
             BottomNavigationBarItem(
-            icon: Icon(Icons.movie),
-            label: 'Reels',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ]),
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_box_outlined),
+              label: 'Plus',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.movie),
+              label: 'Reels',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ]),
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -135,7 +155,7 @@ void tapTab(int index){
             padding: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
             child: Text(
               "bril",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
@@ -221,23 +241,32 @@ void tapTab(int index){
                         mainAxisSpacing: 1,
                         crossAxisSpacing: 5),
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/boat.jpg"),
-                                fit: BoxFit.cover)),
+                      GestureDetector(
+                        onTap: () => openPostDetail(0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/images/boat.jpg"),
+                                  fit: BoxFit.cover)),
+                        ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/cat.jpg"),
-                                fit: BoxFit.cover)),
+                      GestureDetector(
+                        onTap: () => openPostDetail(1),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/images/cat.jpg"),
+                                  fit: BoxFit.cover)),
+                        ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/sushi.jpg"),
-                                fit: BoxFit.cover)),
+                      GestureDetector(
+                        onTap: () => openPostDetail(2),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/images/sushi.jpg"),
+                                  fit: BoxFit.cover)),
+                        ),
                       )
                     ],
                   ),
@@ -259,7 +288,6 @@ void tapTab(int index){
                   ),
                 ]),
           ),
-          
         ],
       ),
     );

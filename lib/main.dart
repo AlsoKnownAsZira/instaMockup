@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_mockup/pages/profilePage.dart';
+import 'package:insta_mockup/widgets/postDetail.dart';
 
 // ignore_for_file: prefer_const_constructors
 void main() {
