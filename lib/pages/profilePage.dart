@@ -28,7 +28,7 @@ class _profilePageState extends State<profilePage>
     "Cute little meow meow",
     "Itadakimasu!"
   ];
-  List<int> likeCounts = [7, 10, 6];
+  List<int> likeCounts = [7, 9, 6];
 
   // opening image tapped
   void openPostDetail(int index) {
@@ -270,22 +270,42 @@ class _profilePageState extends State<profilePage>
                       )
                     ],
                   ),
-                  GridView(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 1,
-                        crossAxisSpacing: 5),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                 //   crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/tagged.jpg"),
-                                fit: BoxFit.cover)),
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            width: 120,
+                            height: 120,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border:
+                                    Border.all(color: Colors.black, width: 5),
+                                borderRadius: BorderRadius.circular(60)),
+                          ),
+                          Container(
+                            width: 110,
+                            height: 110,
+                            decoration: BoxDecoration(
+                                color: Colors.white,        
+                                borderRadius: BorderRadius.circular(55)),
+                                child: Icon(Icons.person_pin_sharp,size:60,),
+                                )
+                        ],
                       ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text("Photos and videos of you",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 90),
+                        child: Text("When people tag you in photos and videos, they'll appear here."),
+                      )
                     ],
-                  ),
+                  )
                 ]),
           ),
         ],

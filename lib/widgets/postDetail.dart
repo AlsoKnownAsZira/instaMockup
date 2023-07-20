@@ -105,7 +105,12 @@ class _postDetailState extends State<postDetail> {
                           });
                         },
                         // changing color
-                        icon: _isLiked ? const Icon(Icons.favorite, color: Colors.red,): const Icon (Icons.favorite_border)),
+                        icon: _isLiked
+                            ? const Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              )
+                            : const Icon(Icons.favorite_border)),
                     const Icon(Icons.mode_comment_outlined),
                     const SizedBox(
                       width: 10,
@@ -113,30 +118,30 @@ class _postDetailState extends State<postDetail> {
                     const Icon(Icons.share),
                   ],
                 ),
-               const Icon(Icons.bookmark_border),
+                const Icon(Icons.bookmark_border),
               ],
             ),
           ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                
-                children: [
-                  Text('$_totalLikes Likes'),
-                ],
-              ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Text('liked by lavientrop_ and $_totalLikes others'),
+              ],
             ),
-               Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                
-                children: [
-                  Text('Ziraaa_   ',style: TextStyle(fontWeight: FontWeight.bold),),
-                  Text(widget.imageCapt[widget.selectedIndex])
-                ],
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Text(
+                  'Ziraaa_   ',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(widget.imageCapt[widget.selectedIndex])
+              ],
             ),
-            
+          ),
         ],
       ),
     );
