@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class postDetail extends StatelessWidget {
+class postDetail extends StatefulWidget {
   const postDetail(
       {required this.imageList,
       required this.selectedIndex,
@@ -11,6 +11,23 @@ class postDetail extends StatelessWidget {
   final int selectedIndex;
   final List<String> imageCapt;
   final List<int> likeCount;
+
+  @override
+  State<postDetail> createState() => _postDetailState();
+}
+
+class _postDetailState extends State<postDetail> {
+// change like count
+  bool _isLiked = false;
+  int _totalLikes = 0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // using a widget widget.(name)
+    _totalLikes = widget.likeCount[widget.selectedIndex];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,17 +62,17 @@ class postDetail extends StatelessWidget {
                         decoration: BoxDecoration(
                             border: Border.all(width: 3, color: Colors.white),
                             borderRadius: BorderRadius.circular(60),
-                            image:const DecorationImage(
+                            image: const DecorationImage(
                               image: AssetImage("assets/images/ppzira.jpg"),
                               fit: BoxFit.cover,
                             ))),
-                 const   SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     Text("Ziraaa_")
                   ],
                 ),
-               const Icon(Icons.more_vert_outlined)
+                const Icon(Icons.more_vert_outlined)
               ],
             ),
           ),
@@ -65,30 +82,61 @@ class postDetail extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.black,
                 image: DecorationImage(
-                    image: AssetImage(imageList[selectedIndex]),
+                    image: AssetImage(widget.imageList[widget.selectedIndex]),
                     fit: BoxFit.cover)),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    IconButton(onPressed: (){
-
-                    }, icon: Icon(Icons.favorite_border)),
-                  
-                    Icon(Icons.mode_comment_outlined),
-                      SizedBox(width: 10,),
-                    Icon(Icons.share)
+                    IconButton(
+                        onPressed: () {
+                          setState(() {
+                            // changing like to true
+                            _isLiked = !_isLiked;
+                            if (_isLiked) {
+                              _totalLikes++;
+                            } else {
+                              _totalLikes--;
+                            }
+                          });
+                        },
+                        // changing color
+                        icon: _isLiked ? const Icon(Icons.favorite, color: Colors.red,): const Icon (Icons.favorite_border)),
+                    const Icon(Icons.mode_comment_outlined),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Icon(Icons.share),
                   ],
-                
                 ),
-                Icon(Icons.bookmark_border)
+               const Icon(Icons.bookmark_border),
               ],
             ),
           ),
-         
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                
+                children: [
+                  Text('$_totalLikes Likes'),
+                ],
+              ),
+            ),
+               Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                
+                children: [
+                  Text('Ziraaa_   ',style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text(widget.imageCapt[widget.selectedIndex])
+                ],
+              ),
+            ),
+            
         ],
       ),
     );
