@@ -187,7 +187,16 @@ class _profilePageState extends State<profilePage>
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  content: Text(
+                      "Work in progress, please wait for future updates:)"),
+                  behavior: SnackBarBehavior.floating,
+                  duration: Duration(seconds: 3),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                ));
+              },
               child: Text(
                 "EDIT PROFILE",
                 style: TextStyle(color: Colors.black),
@@ -272,7 +281,7 @@ class _profilePageState extends State<profilePage>
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                 //   crossAxisAlignment: CrossAxisAlignment.center,
+                    //   crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Stack(
                         alignment: Alignment.center,
@@ -290,19 +299,27 @@ class _profilePageState extends State<profilePage>
                             width: 110,
                             height: 110,
                             decoration: BoxDecoration(
-                                color: Colors.white,        
+                                color: Colors.white,
                                 borderRadius: BorderRadius.circular(55)),
-                                child: Icon(Icons.person_pin_sharp,size:60,),
-                                )
+                            child: Icon(
+                              Icons.person_pin_sharp,
+                              size: 60,
+                            ),
+                          )
                         ],
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text("Photos and videos of you",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                        child: Text(
+                          "Photos and videos of you",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 90),
-                        child: Text("When people tag you in photos and videos, they'll appear here."),
+                        child: Text(
+                            "When people tag you in photos and videos, they'll appear here."),
                       )
                     ],
                   )
