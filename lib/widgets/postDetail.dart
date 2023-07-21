@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../widgets/bottomSheetPost.dart';
 class postDetail extends StatefulWidget {
   const postDetail(
       {required this.imageList,
@@ -50,7 +50,7 @@ class _postDetailState extends State<postDetail> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -69,10 +69,20 @@ class _postDetailState extends State<postDetail> {
                     const SizedBox(
                       width: 5,
                     ),
-                    Text("Ziraaa_")
+                    const Text("Ziraaa_")
                   ],
                 ),
-                const Icon(Icons.more_vert_outlined)
+                IconButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) => SizedBox(
+                          height: 500,
+                          child: bottomSheetPost(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.more_vert_rounded))
               ],
             ),
           ),
@@ -126,7 +136,14 @@ class _postDetailState extends State<postDetail> {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
-                Text('liked by lavientrop_ and $_totalLikes others'),
+                Text('liked by '),
+                Text(
+                  'lavientrop_ ',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text('and '),
+                Text('$_totalLikes others',
+                    style: TextStyle(fontWeight: FontWeight.bold))
               ],
             ),
           ),
@@ -147,3 +164,4 @@ class _postDetailState extends State<postDetail> {
     );
   }
 }
+
