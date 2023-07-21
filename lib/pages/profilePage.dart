@@ -5,6 +5,7 @@ import 'package:insta_mockup/widgets/postDetail.dart';
 import '../widgets/counterInfo.dart';
 import '../widgets/profilePicture.dart';
 import '../widgets/highlights.dart';
+import '../widgets/profilePageBottomSheet.dart';
 
 // ignore_for_file: prefer_const_constructors
 class profilePage extends StatefulWidget {
@@ -125,7 +126,15 @@ class _profilePageState extends State<profilePage>
                 color: Colors.black,
               )),
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => SizedBox(
+                    height: 400,
+                    child: profilePageBottomSheet(),
+                  ),
+                );
+              },
               icon: Icon(
                 Icons.menu,
                 color: Colors.black,
@@ -330,3 +339,5 @@ class _profilePageState extends State<profilePage>
     );
   }
 }
+
+
