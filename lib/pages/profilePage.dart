@@ -6,6 +6,7 @@ import '../widgets/counterInfo.dart';
 import '../widgets/profilePicture.dart';
 import '../widgets/highlights.dart';
 import '../widgets/profilePageBottomSheet.dart';
+import '../widgets/followMenu.dart';
 
 // ignore_for_file: prefer_const_constructors
 class profilePage extends StatefulWidget {
@@ -41,6 +42,15 @@ class _profilePageState extends State<profilePage>
               selectedIndex: index,
               imageCapt: caption,
               likeCount: likeCounts),
+        ));
+  }
+
+// open follow menu
+  void openFollowDetail() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => followMenu(),
         ));
   }
 
@@ -149,13 +159,16 @@ class _profilePageState extends State<profilePage>
               profilePicture(),
               //follower, following, post count
               Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    counterInfo("Posts", "3"),
-                    counterInfo("Followers", "10"),
-                    counterInfo("Following", "7")
-                  ],
+                child: GestureDetector(
+                  onTap: () => openFollowDetail(),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      counterInfo("Posts", "3"),
+                      counterInfo("Followers", "10"),
+                      counterInfo("Following", "7")
+                    ],
+                  ),
                 ),
               )
             ],
@@ -339,5 +352,3 @@ class _profilePageState extends State<profilePage>
     );
   }
 }
-
-
