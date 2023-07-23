@@ -42,8 +42,7 @@ class followMenu extends StatelessWidget {
               followerMenu(
                   Profileimage: "assets/images/pp.jpg", username: "lavientrop"),
               followerMenu(
-                  username: 'diterpene_glycosides',
-                  Profileimage: "assets/images/pp2.jpg"),
+                  username: 'diterpene_glycosides',      Profileimage: "assets/images/pp2.jpg"),
               followerMenu(
                   username: 'marxci', Profileimage: 'assets/images/pp3.jpg')
             ],
