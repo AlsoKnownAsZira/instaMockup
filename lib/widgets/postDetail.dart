@@ -98,7 +98,6 @@ class _postDetailState extends State<postDetail> {
                               _totalLikes--;
                             }
                           });
-                        
             },
             child: Container(
               width: double.infinity,
