@@ -86,14 +86,29 @@ class _postDetailState extends State<postDetail> {
               ],
             ),
           ),
-          Container(
-            width: double.infinity,
-            height: 400,
-            decoration: BoxDecoration(
-                color: Colors.black,
-                image: DecorationImage(
-                    image: AssetImage(widget.imageList[widget.selectedIndex]),
-                    fit: BoxFit.cover)),
+          GestureDetector(
+            onDoubleTap: () {
+               
+                          setState(() {
+                            // changing like to true
+                            _isLiked = !_isLiked;
+                            if (_isLiked) {
+                              _totalLikes++;
+                            } else {
+                              _totalLikes--;
+                            }
+                          });
+                        
+            },
+            child: Container(
+              width: double.infinity,
+              height: 400,
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  image: DecorationImage(
+                      image: AssetImage(widget.imageList[widget.selectedIndex]),
+                      fit: BoxFit.cover)),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:insta_mockup/widgets/postDetail.dart';
+import 'package:insta_mockup/widgets/ziraStory.dart';
 import '../widgets/counterInfo.dart';
 import '../widgets/profilePicture.dart';
 import '../widgets/highlights.dart';
@@ -156,7 +157,15 @@ class _profilePageState extends State<profilePage>
         children: [
           Row(
             children: [
-              profilePicture(),
+              GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => ziraStory(),
+                      
+                    );
+                  },
+                  child: profilePicture()),
               //follower, following, post count
               Expanded(
                 child: GestureDetector(
