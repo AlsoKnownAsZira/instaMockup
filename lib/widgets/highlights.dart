@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'nomnom.dart';
 class Highlight extends StatelessWidget {
   const Highlight({
     required this.highlight_title,
@@ -13,7 +14,7 @@ class Highlight extends StatelessWidget {
       children: [
         OutlinedButton(
             onPressed: () {
-              
+               Navigator.of(context).push(MaterialPageRoute(builder: (context) => nomnom(),));
             },
             style: ElevatedButton.styleFrom(shape: CircleBorder()),
             child: Container(

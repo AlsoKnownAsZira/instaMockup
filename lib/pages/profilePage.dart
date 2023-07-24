@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:insta_mockup/widgets/nomnom.dart';
 import 'package:insta_mockup/widgets/postDetail.dart';
 import 'package:insta_mockup/widgets/ziraStory.dart';
 import '../widgets/counterInfo.dart';
@@ -162,7 +163,6 @@ class _profilePageState extends State<profilePage>
                     showDialog(
                       context: context,
                       builder: (context) => ziraStory(),
-                      
                     );
                   },
                   child: profilePicture()),
@@ -237,7 +237,7 @@ class _profilePageState extends State<profilePage>
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: const [
+              children: [
                 Highlight(
                     highlight_title: "Nom nom",
                     image_asset: 'assets/images/hl1.jpg'),
