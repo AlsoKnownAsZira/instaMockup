@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'nomnom.dart';
+import 'meowmeow.dart';
+
 class Highlight extends StatelessWidget {
   const Highlight({
     required this.highlight_title,
@@ -10,11 +11,15 @@ class Highlight extends StatelessWidget {
   final String image_asset;
   @override
   Widget build(BuildContext context) {
+    
+
     return Column(
       children: [
         OutlinedButton(
             onPressed: () {
-               Navigator.of(context).push(MaterialPageRoute(builder: (context) => nomnom(),));
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => meowmeow(),
+              ));
             },
             style: ElevatedButton.styleFrom(shape: CircleBorder()),
             child: Container(

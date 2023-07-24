@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:insta_mockup/widgets/nomnom.dart';
+import 'package:insta_mockup/widgets/meowmeow.dart';
 import 'package:insta_mockup/widgets/postDetail.dart';
 import 'package:insta_mockup/widgets/ziraStory.dart';
 import '../widgets/counterInfo.dart';
@@ -11,6 +11,8 @@ import '../widgets/profilePageBottomSheet.dart';
 import '../widgets/followMenu.dart';
 
 // ignore_for_file: prefer_const_constructors
+
+
 class profilePage extends StatefulWidget {
   const profilePage({super.key});
 
@@ -238,9 +240,6 @@ class _profilePageState extends State<profilePage>
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                Highlight(
-                    highlight_title: "Nom nom",
-                    image_asset: 'assets/images/hl1.jpg'),
                 Highlight(
                     highlight_title: "Meow meow",
                     image_asset: 'assets/images/hl2.jpg'),
