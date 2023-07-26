@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insta_mockup/pages/profilePage.dart';
+import 'package:insta_mockup/pages/loginPage.dart';
 import 'package:insta_mockup/widgets/postDetail.dart';
 
 // ignore_for_file: prefer_const_constructors
@@ -13,7 +14,7 @@ class instaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: profilePage(),
+      home: loginPage(),
       debugShowCheckedModeBanner: false,
     );
   }
