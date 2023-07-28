@@ -9,9 +9,12 @@ import '../widgets/profilePicture.dart';
 import '../widgets/highlights.dart';
 import '../widgets/profilePageBottomSheet.dart';
 import '../widgets/followMenu.dart';
+import 'homePage.dart';
+import 'reelsPage.dart';
+import 'SearchPage.dart';
+import 'uploadPage.dart';
 
 // ignore_for_file: prefer_const_constructors
-
 
 class profilePage extends StatefulWidget {
   const profilePage({super.key});
@@ -64,11 +67,23 @@ class _profilePageState extends State<profilePage>
     tabController = TabController(length: 2, vsync: this);
   }
 
-// handling tab changes
   int currentIndex = 4;
+  final List<Widget> pagesList = [
+    homePage(),
+    searchPage(),
+    uploadPage(),
+    reelsPage(),
+    profilePage(),
+  ];
+
   void tapTab(int index) {
     setState(() {
       currentIndex = index;
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => pagesList[currentIndex],
+          ));
     });
   }
 
@@ -107,7 +122,6 @@ class _profilePageState extends State<profilePage>
           ]),
       backgroundColor: Colors.white,
       appBar: AppBar(
-
         backgroundColor: Colors.white,
         elevation: 0,
         title: Row(
@@ -361,4 +375,3 @@ class _profilePageState extends State<profilePage>
     );
   }
 }
-
