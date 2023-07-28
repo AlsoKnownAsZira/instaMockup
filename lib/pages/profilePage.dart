@@ -79,11 +79,12 @@ class _profilePageState extends State<profilePage>
   void tapTab(int index) {
     setState(() {
       currentIndex = index;
-      Navigator.push(
+
+      Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(
-            builder: (context) => pagesList[currentIndex],
-          ));
+          MaterialPageRoute(builder: (context) => pagesList[currentIndex]),
+          (route) =>
+              route.isFirst || route.settings.name == '/screen_below_home');
     });
   }
 
@@ -122,8 +123,10 @@ class _profilePageState extends State<profilePage>
           ]),
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         elevation: 0,
+        leading: null,
         title: Row(
           children: const [
             Icon(
