@@ -34,11 +34,12 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
   bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey,
-          currentIndex: currentIndex,
+          currentIndex: 0,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           onTap: tapTab,
@@ -64,7 +65,25 @@ class _homePageState extends State<homePage> {
               label: 'Profile',
             ),
           ]),
+appBar: AppBar(
+  automaticallyImplyLeading: false,
+  backgroundColor: Colors.white,
+  elevation: 0,
+  title: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Text("Instagram",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24,fontFamily: 'Grandista',color: Colors.black),),
+      Row(
+        children: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border_outlined,color: Colors.black,),),
+          IconButton(onPressed: (){}, icon: Icon(Icons.chat_bubble_outline,color: Colors.black,),),
 
+        ],
+      )
+
+    ],
+  )
+),
     );
   }
 }

@@ -95,7 +95,7 @@ class _profilePageState extends State<profilePage>
           backgroundColor: Colors.white,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey,
-          currentIndex: currentIndex,
+          currentIndex: 4,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           onTap: tapTab,
