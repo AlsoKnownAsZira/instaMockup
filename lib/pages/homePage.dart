@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_mockup/widgets/NotifHomePage.dart';
 import 'searchPage.dart';
 import 'uploadPage.dart';
 import 'reelsPage.dart';
@@ -35,7 +36,7 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-  bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey,
@@ -65,25 +66,47 @@ class _homePageState extends State<homePage> {
               label: 'Profile',
             ),
           ]),
-appBar: AppBar(
-  automaticallyImplyLeading: false,
-  backgroundColor: Colors.white,
-  elevation: 0,
-  title: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Text("Instagram",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24,fontFamily: 'Grandista',color: Colors.black),),
-      Row(
-        children: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border_outlined,color: Colors.black,),),
-          IconButton(onPressed: (){}, icon: Icon(Icons.chat_bubble_outline,color: Colors.black,),),
-
-        ],
-      )
-
-    ],
-  )
-),
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Instagram",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                    fontFamily: 'Grandista',
+                    color: Colors.black),
+              ),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => notifHomePage(),
+                          ));
+                    },
+                    icon: Icon(
+                      Icons.favorite_border_outlined,
+                      color: Colors.black,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.chat_bubble_outline,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          )),
     );
   }
 }
