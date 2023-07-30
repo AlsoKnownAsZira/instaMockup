@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:insta_mockup/widgets/DM.dart';
 import 'package:insta_mockup/widgets/NotifHomePage.dart';
+import 'package:insta_mockup/widgets/ziraStory.dart';
 import 'searchPage.dart';
 import 'uploadPage.dart';
 import 'reelsPage.dart';
 import 'profilePage.dart';
+import '../widgets/storyGrid.dart';
 
 class homePage extends StatefulWidget {
   const homePage({super.key});
@@ -99,7 +101,7 @@ class _homePageState extends State<homePage> {
                   ),
                   IconButton(
                     onPressed: () {
-                            Navigator.push(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => DM(),
@@ -114,6 +116,26 @@ class _homePageState extends State<homePage> {
               )
             ],
           )),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: [
+          Row(
+            children: [
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ziraStory(),
+                        ));
+                  },
+                  child: storyGrid(
+                      image: 'assets/images/ppzira.jpg',
+                      username: 'Your story'))
+            ],
+          )
+        ],
+      ),
     );
   }
 }
