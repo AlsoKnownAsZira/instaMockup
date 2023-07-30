@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta_mockup/widgets/DM.dart';
 import 'package:insta_mockup/widgets/NotifHomePage.dart';
 import 'searchPage.dart';
 import 'uploadPage.dart';
@@ -97,7 +98,13 @@ class _homePageState extends State<homePage> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                            Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DM(),
+                          ));
+                    },
                     icon: Icon(
                       Icons.chat_bubble_outline,
                       color: Colors.black,

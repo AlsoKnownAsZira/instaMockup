@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../pages/homePage.dart';
 import '../pages/searchPage.dart';
 import '../pages/uploadPage.dart';
@@ -100,8 +99,11 @@ class _notifHomePageState extends State<notifHomePage> {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
-          notifObject(profileImage: 'assets/images/pp3.jpg' , username: 'marxci', time: '1d'),
-           Padding(
+          notifObject(
+              profileImage: 'assets/images/pp3.jpg',
+              username: 'marxci',
+              time: '1d'),
+          Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
               "This week",
@@ -113,26 +115,27 @@ class _notifHomePageState extends State<notifHomePage> {
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Container(
-                        width: 50,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 3, color: Colors.white),
-                            borderRadius: BorderRadius.circular(60),
-                            image: DecorationImage(
-                              image: AssetImage('assets/images/pp2.jpg'),
-                              fit: BoxFit.cover,
-                            ))),
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 3, color: Colors.white),
+                        borderRadius: BorderRadius.circular(60),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/pp2.jpg'),
+                          fit: BoxFit.cover,
+                        ))),
               ),
-                          Flexible(
-                            child: Text('diterpene_glycosides, lavientrop and others shared 5 photos '))
+              Flexible(
+                  child: Text(
+                      'diterpene_glycosides, lavientrop and others shared 5 photos '))
             ],
           ),
-    Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-         Padding(
-            padding: const EdgeInsets.all(10),
-            child: Container(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Container(
                     width: 50,
                     height: 50,
                     decoration: BoxDecoration(
@@ -142,20 +145,19 @@ class _notifHomePageState extends State<notifHomePage> {
                           image: AssetImage('assets/images/pp.jpg'),
                           fit: BoxFit.cover,
                         ))),
+              ),
+              Flexible(child: Text("lavientrop and 9 others liked your photo")),
+              Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/cat.jpg'),
+                        fit: BoxFit.cover)),
+              ),
+            ],
           ),
-          Flexible(child:Text("lavientrop and 9 others liked your photo")),
-            Container(
-    width: 100,
-    height: 100,
-       decoration: BoxDecoration(
-    image: DecorationImage(image: AssetImage('assets/images/cat.jpg'))
-       ),
-       ),
-      ],
-    ),
-     
         ],
-        
       ),
     );
   }
