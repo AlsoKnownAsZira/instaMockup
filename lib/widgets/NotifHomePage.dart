@@ -84,30 +84,98 @@ class _notifHomePageState extends State<notifHomePage> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
+              "New",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          notifObject(
+            profileImage: "assets/images/pp.jpg",
+            username: 'lavientrop',
+            time: '3H',
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
               "Yesterday",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
-          
+          notifObject(profileImage: 'assets/images/pp3.jpg' , username: 'marxci', time: '1d'),
+           Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              "This week",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            border: Border.all(width: 3, color: Colors.white),
+                            borderRadius: BorderRadius.circular(60),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/pp2.jpg'),
+                              fit: BoxFit.cover,
+                            ))),
+              ),
+                          Flexible(
+                            child: Text('diterpene_glycosides, lavientrop and others shared 5 photos '))
+            ],
+          ),
+    Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+         Padding(
+            padding: const EdgeInsets.all(10),
+            child: Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 3, color: Colors.white),
+                        borderRadius: BorderRadius.circular(60),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/pp.jpg'),
+                          fit: BoxFit.cover,
+                        ))),
+          ),
+          Flexible(child:Text("lavientrop and 9 others liked your photo")),
+            Container(
+    width: 100,
+    height: 100,
+       decoration: BoxDecoration(
+    image: DecorationImage(image: AssetImage('assets/images/cat.jpg'))
+       ),
+       ),
+      ],
+    ),
+     
         ],
+        
       ),
     );
   }
 }
 
 class notifObject extends StatelessWidget {
-  const notifObject({
-    required this.profileImage,
-    required this.username,
-    super.key});
+  const notifObject(
+      {required this.profileImage,
+      required this.username,
+      required this.time,
+      super.key});
 
   final String profileImage;
   final String username;
+  final String time;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
-child: Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
@@ -127,7 +195,11 @@ child: Row(
                   const SizedBox(
                     width: 5,
                   ),
-                  Text(username)
+                  Text("$username Started Following you  "),
+                  Text(
+                    "$time",
+                    style: TextStyle(fontWeight: FontWeight.w400),
+                  )
                 ],
               )
             ],
@@ -137,11 +209,11 @@ child: Row(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.grey[200], elevation: 0),
               child: Container(
-                  width: 100,
+                  width: 60,
                   height: 25,
                   child: Center(
                       child: Text(
-                    "Follow back",
+                    "Followed",
                     style: TextStyle(color: Colors.black),
                   )))),
         ],
