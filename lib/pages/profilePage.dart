@@ -215,7 +215,7 @@ class _profilePageState extends State<profilePage>
               text: TextSpan(children: const [
                 TextSpan(
                   text:
-                      "Hi there, Thanks for testing my app. Some Instagram features may not be available yet in this clone app, but stay tuned for future updates! ",
+                      "Hi there, Thanks for testing and thus helping me build this clone app. Some features may not be available yet, stay tuned for future updates! ",
                   style: TextStyle(color: Colors.black),
                 ),
                 TextSpan(text: "#WIP", style: TextStyle(color: Colors.blue))
