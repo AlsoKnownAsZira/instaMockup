@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:insta_mockup/widgets/DM.dart';
 import 'package:insta_mockup/widgets/NotifHomePage.dart';
+import 'package:insta_mockup/widgets/openOthersStory.dart';
 import 'package:insta_mockup/widgets/ziraStory.dart';
 import 'searchPage.dart';
 import 'uploadPage.dart';
@@ -131,7 +132,25 @@ class _homePageState extends State<homePage> {
                   },
                   child: storyGrid(
                       image: 'assets/images/ppzira.jpg',
-                      username: 'Your story'))
+                      username: 'Your story')),
+
+SizedBox(width: 20,)
+                      ,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => openOthersStory(
+                            profilePic: 'assets/images/pp.jpg',
+                            username: 'lavientrop',
+                            storyPic: 'https://rb.gy/mdt0g',
+                            timelapse: '6h'),
+                      ));
+                },
+                child: storyGrid(
+                    image: 'assets/images/pp.jpg', username: 'lavientrop'),
+              )
             ],
           )
         ],
