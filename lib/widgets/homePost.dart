@@ -34,7 +34,7 @@ class _homePostState extends State<homePost> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -56,7 +56,9 @@ class _homePostState extends State<homePost> {
                   Text(widget.userName)
                 ],
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.more_vert_outlined))
+              IconButton(onPressed: () {
+
+              }, icon: const Icon(Icons.more_vert_outlined))
             ],
           ),
           GestureDetector(
@@ -71,11 +73,12 @@ class _homePostState extends State<homePost> {
               });
             },
             child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
               height: 300,
               decoration: BoxDecoration(
                   image:
-                      DecorationImage(image: NetworkImage(widget.postImage))),
+                      DecorationImage(image: NetworkImage(widget.postImage),fit: BoxFit.cover)),
             ),
           ),
           Row(
@@ -93,19 +96,37 @@ class _homePostState extends State<homePost> {
                   _totalLikes--;
                 }
               });
-                      }, icon: _isLiked? Icon(Icons.favorite, color: Colors.red,)
-                      : Icon(Icons.favorite_border)
+                      }, icon: _isLiked? const Icon(Icons.favorite, color: Colors.red,)
+                      : const Icon(Icons.favorite_border)
                       ),
-                  Icon(Icons.mode_comment_outlined),
-                  Icon(Icons.share)
+                const  Icon(Icons.mode_comment_outlined),
+                const  SizedBox(width: 5,),
+                const  Icon(Icons.share)
                 ],
               ),
-              Icon(Icons.bookmark_border)
+           const   Padding(
+                padding:  EdgeInsets.only(right: 10),
+                child: Icon(Icons.bookmark_border),
+              )
             ],
           ),
-          Text("$_totalLikes Likes"),
-          Text("${widget.userName}  ${widget.caption}"),
-          Text(widget.datePosted),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text("$_totalLikes Likes",style: const TextStyle(fontWeight: FontWeight.bold),),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Text(widget.userName,style:  TextStyle(fontWeight: FontWeight.bold),),
+                Flexible(child: Text(' ${widget.caption} '))
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(widget.datePosted,style: TextStyle(fontWeight: FontWeight.w300),),
+          ),
         ],
       ),
     );
