@@ -8,6 +8,7 @@ import 'uploadPage.dart';
 import 'reelsPage.dart';
 import 'profilePage.dart';
 import '../widgets/storyGrid.dart';
+import '../widgets/homePost.dart';
 
 class homePage extends StatefulWidget {
   const homePage({super.key});
@@ -152,7 +153,8 @@ SizedBox(width: 20,)
                     image: 'assets/images/pp.jpg', username: 'lavientrop'),
               )
             ],
-          )
+          ),
+          homePost(profileImage:'assets/images/pp.jpg' , postImage: 'https://rb.gy/mdt0g', likecount: 20, userName: 'lavientrop', caption: 'lorem ipsum', datePosted: '2 hours ago')
         ],
       ),
     );

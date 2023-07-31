@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import '../widgets/bottomSheetPost.dart';
+
 class postDetail extends StatefulWidget {
   const postDetail(
       {required this.imageList,
       required this.selectedIndex,
       required this.imageCapt,
       required this.likeCount,
+      required this.datePosted,
       super.key});
   final List<String> imageList;
   final int selectedIndex;
   final List<String> imageCapt;
   final List<int> likeCount;
+  final List<String> datePosted;
 
   @override
   State<postDetail> createState() => _postDetailState();
@@ -48,6 +51,7 @@ class _postDetailState extends State<postDetail> {
         elevation: 0,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.all(15),
@@ -88,16 +92,15 @@ class _postDetailState extends State<postDetail> {
           ),
           GestureDetector(
             onDoubleTap: () {
-               
-                          setState(() {
-                            // changing like to true
-                            _isLiked = !_isLiked;
-                            if (_isLiked) {
-                              _totalLikes++;
-                            } else {
-                              _totalLikes--;
-                            }
-                          });
+              setState(() {
+                // changing like to true
+                _isLiked = !_isLiked;
+                if (_isLiked) {
+                  _totalLikes++;
+                } else {
+                  _totalLikes--;
+                }
+              });
             },
             child: Container(
               width: double.infinity,
@@ -169,13 +172,17 @@ class _postDetailState extends State<postDetail> {
                   'Ziraaa_   ',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                Text(widget.imageCapt[widget.selectedIndex])
+                Text(widget.imageCapt[widget.selectedIndex]),
+               
               ],
             ),
           ),
+           Padding(
+             padding: const EdgeInsets.symmetric(horizontal: 10),
+             child: Text(widget.datePosted[widget.selectedIndex],style: TextStyle(fontWeight: FontWeight.w300),),
+           )
         ],
       ),
     );
   }
 }
-
