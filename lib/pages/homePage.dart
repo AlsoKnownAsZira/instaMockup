@@ -29,11 +29,10 @@ class _homePageState extends State<homePage> {
   void tapTab(int index) {
     setState(() {
       currentIndex = index;
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => pagesList[currentIndex]),
-          (route) =>
-              route.isFirst || route.settings.name == '/screen_below_home');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => pagesList[currentIndex]),
+      );
     });
   }
 
