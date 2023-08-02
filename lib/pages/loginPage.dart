@@ -46,7 +46,7 @@ class _loginPageState extends State<loginPage> {
                   ),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30)),
-                  labelText: 'Email Adress'),
+                  hintText: 'Email Adress'),
             ),
             SizedBox(
               height: 20,
@@ -58,7 +58,7 @@ class _loginPageState extends State<loginPage> {
               decoration: InputDecoration(
                   contentPadding:
                       EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  labelText: "Password",
+                  hintText: "Password",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),

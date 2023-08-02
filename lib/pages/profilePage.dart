@@ -38,11 +38,7 @@ class _profilePageState extends State<profilePage>
     "Itadakimasu!"
   ];
   List<int> likeCounts = [7, 9, 6];
-  List<String> datePosted = [
-    '30 May 2023',
-    '5 January 2022',
-    '15 June 2020'
-  ];
+  List<String> datePosted = ['30 May 2023', '5 January 2022', '15 June 2020'];
   // opening image tapped
   void openPostDetail(int index) {
     Navigator.push(
@@ -85,11 +81,8 @@ class _profilePageState extends State<profilePage>
     setState(() {
       currentIndex = index;
 
-      Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (context) => pagesList[currentIndex]),
-          (route) =>
-              route.isFirst || route.settings.name == '/screen_below_home');
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => pagesList[currentIndex]));
     });
   }
 
