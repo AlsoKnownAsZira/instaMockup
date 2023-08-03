@@ -4,6 +4,7 @@ import 'homePage.dart';
 import 'searchPage.dart';
 import 'uploadPage.dart';
 import 'profilePage.dart';
+import 'package:chewie/chewie.dart';
 
 class reelsPage extends StatefulWidget {
   @override
@@ -31,7 +32,7 @@ class _reelsPageState extends State<reelsPage> {
   }
 
   final List<String> videoAsset = [
-    'assets/videos/vid1.mp4',
+    'assets/videos/vid2.mp4',
     'assets/videos/vid2.mp4'
   ];
   List<Widget> _generateVideoChildren() {
@@ -39,17 +40,34 @@ class _reelsPageState extends State<reelsPage> {
     for (var path in videoAsset) {
       final videoPlayerController = VideoPlayerController.asset(path);
       final videoPlayer = VideoPlayer(videoPlayerController);
+     final chewieController = ChewieController(
+        videoPlayerController: videoPlayerController,
+        autoPlay: true,
+        looping: true, 
+      );
+ final chewie = Chewie(controller: chewieController);
+
       videoPlayerController.initialize().then((_) {
         videoPlayerController.play();
       });
 
       final aspectRatioVideo = AspectRatio(
         aspectRatio: videoPlayerController.value.aspectRatio,
+        
         child: Container(
           color: Colors.grey[400],
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          child: videoPlayer,
+          child: GestureDetector(
+            onTap: () {
+              if (videoPlayerController.value.isPlaying) {
+                videoPlayerController.pause();
+              } else {
+                videoPlayerController.play();
+              }
+            },
+            child: chewie, 
+          ),
         ),
       );
 
