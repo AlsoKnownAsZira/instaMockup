@@ -41,7 +41,7 @@ class _profilePageState extends State<profilePage>
   List<String> datePosted = ['30 May 2023', '5 January 2022', '15 June 2020'];
   // opening image tapped
   void openPostDetail(int index) {
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => postDetail(

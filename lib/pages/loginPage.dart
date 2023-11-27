@@ -23,7 +23,7 @@ class _loginPageState extends State<loginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
+        const    Text(
               "Instagram",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -31,7 +31,7 @@ class _loginPageState extends State<loginPage> {
                 fontSize: 38,
               ),
             ),
-            SizedBox(
+       const SizedBox(
               height: 20,
             ),
             TextField(
@@ -40,7 +40,7 @@ class _loginPageState extends State<loginPage> {
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.next,
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
+                  contentPadding: const EdgeInsets.symmetric(
                     horizontal: 30,
                     vertical: 20,
                   ),
@@ -48,7 +48,7 @@ class _loginPageState extends State<loginPage> {
                       borderRadius: BorderRadius.circular(30)),
                   hintText: 'Email Adress'),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             TextField(
@@ -57,7 +57,7 @@ class _loginPageState extends State<loginPage> {
               textInputAction: TextInputAction.done,
               decoration: InputDecoration(
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                   const    EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                   hintText: "Password",
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),

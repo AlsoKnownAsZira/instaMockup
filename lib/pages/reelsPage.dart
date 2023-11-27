@@ -4,7 +4,7 @@ import 'homePage.dart';
 import 'searchPage.dart';
 import 'uploadPage.dart';
 import 'profilePage.dart';
-import 'package:chewie/chewie.dart';
+
 
 class reelsPage extends StatefulWidget {
   @override
@@ -12,7 +12,6 @@ class reelsPage extends StatefulWidget {
 }
 
 class _reelsPageState extends State<reelsPage> {
-  final _controller = PageController();
   int currentIndex = 3;
   final List<Widget> pagesList = [
     homePage(),
@@ -24,64 +23,14 @@ class _reelsPageState extends State<reelsPage> {
   void tapTab(int index) {
     setState(() {
       currentIndex = index;
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => pagesList[currentIndex]),
       );
     });
   }
 
-  final List<String> videoAsset = [
-    'assets/videos/vid2.mp4',
-    'assets/videos/vid2.mp4'
-  ];
-  List<Widget> _generateVideoChildren() {
-    List<Widget> videoChildren = [];
-    for (var path in videoAsset) {
-      final videoPlayerController = VideoPlayerController.asset(path);
-      final videoPlayer = VideoPlayer(videoPlayerController);
-     final chewieController = ChewieController(
-        videoPlayerController: videoPlayerController,
-        autoPlay: true,
-        looping: true, 
-      );
- final chewie = Chewie(controller: chewieController);
-
-      videoPlayerController.initialize().then((_) {
-        videoPlayerController.play();
-      });
-
-      final aspectRatioVideo = AspectRatio(
-        aspectRatio: videoPlayerController.value.aspectRatio,
-        
-        child: Container(
-          color: Colors.grey[400],
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: GestureDetector(
-            onTap: () {
-              if (videoPlayerController.value.isPlaying) {
-                videoPlayerController.pause();
-              } else {
-                videoPlayerController.play();
-              }
-            },
-            child: chewie, 
-          ),
-        ),
-      );
-
-      videoChildren.add(aspectRatioVideo);
-    }
-    return videoChildren;
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,10 +64,8 @@ class _reelsPageState extends State<reelsPage> {
               label: 'Profile',
             ),
           ]),
-      body: PageView(
-        controller: _controller,
-        scrollDirection: Axis.vertical,
-        children: _generateVideoChildren(),
+      body: const Center(
+        child: Text('Work in progress:)'),
       ),
     );
   }

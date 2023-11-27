@@ -15,16 +15,16 @@ class searchPage extends StatefulWidget {
 class _searchPageState extends State<searchPage> {
   int currentIndex = 1;
   final List<Widget> pagesList = [
-    homePage(),
-    searchPage(),
+  const  homePage(),
+  const  searchPage(),
     uploadPage(),
     reelsPage(),
-    profilePage(),
+   const profilePage(),
   ];
   void tapTab(int index) {
     setState(() {
       currentIndex = index;
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => pagesList[currentIndex]),
       );
@@ -107,14 +107,14 @@ class picGrid extends StatelessWidget {
       child: GridView.builder(
         itemCount: 60,
         gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 5,crossAxisSpacing: 5),
+          const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,mainAxisSpacing: 5,crossAxisSpacing: 5),
         itemBuilder: (context, index) {
           return GridTile(
               child: Container(
             decoration: BoxDecoration(
                color: Colors.grey[400],
                 image: DecorationImage(
-                    image: NetworkImage('https://picsum.photos/200?random=$index'))),
+                    image: NetworkImage('https://picsum.photos/200?random=$index'),fit: BoxFit.cover)),
           ));
         },
       ),

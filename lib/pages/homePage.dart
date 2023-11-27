@@ -29,7 +29,7 @@ class _homePageState extends State<homePage> {
   void tapTab(int index) {
     setState(() {
       currentIndex = index;
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => pagesList[currentIndex]),
       );
